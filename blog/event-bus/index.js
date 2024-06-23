@@ -17,7 +17,7 @@ app.post('/events', async (req, res) => {
     await axios.post('http://comments-clusterip-srv:4001/events', event).catch((err) => {
         console.log(err.message);
     });
-    await axios.post('http://localhost:4002/events', event).catch((err) => {
+    await axios.post('http://query-clusterip-srv:4002/events', event).catch((err) => {
         console.log(err.message);
     });
     await axios.post('http://moderation-clusterip-srv:4003/events', event).catch((err) => {
