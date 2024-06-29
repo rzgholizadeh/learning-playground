@@ -24,4 +24,4 @@ const buildUser = (attrs: UserAttrs) => {
     return new User(attrs);
 };
 
-export { User };
+export { User, buildUser };
