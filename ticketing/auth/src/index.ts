@@ -24,10 +24,15 @@ app.all('*', async (req, res) => {
 app.use(errorHandler);
 
 const start = async () => {
+    console.log('Trying to connect to mongoose');
     try {
-        await mongoose.connect('mongodb://auth-mongo-srv:27107/auth');
+        await mongoose.connect(
+            'mongodb://auth-mongo-srv:27107/auth',
+            { serverSelectionTimeoutMS: 10000000 }
+        );
         console.log('Connected to MongoDb');
     } catch (err) {
+        console.log('Failed to connect to mongoos....');
         console.error(err);
     }
 
